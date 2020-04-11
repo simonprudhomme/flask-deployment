@@ -3,3 +3,11 @@ pandas
 dill==0.3.1.1
 Flask==1.0.2
 scikit_learn==0.22.2.post1
+certifi==2018.1.18
+click==6.7
+itsdangerous==0.24
+Jinja2==2.10
+python-dateutil==2.6.1
+pytz==2017.3
+six==1.11.0
+Werkzeug==0.14.1

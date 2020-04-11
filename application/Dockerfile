@@ -1,17 +1,15 @@
-# Pull Base Image
-FROM ubuntu:16.04
+# Base image
+FROM python:3.6-slim-buster
 
-# copy code into image and set as working directory
+# Copy contents
 COPY . /app
+
+# Change work directory
 WORKDIR /app
 
-# install dependencies
-RUN apt-get update -y
-RUN apt-get install -y python3 python3-dev python3-pip
-RUN pip3 install --upgrade pip
-RUN pip3 install -r requirements.txt
-RUN pip3 install flask gunicorn
+# Install the requirements
+RUN apt-get update && apt-get install build-essential -y
+RUN pip install -r requirements.txt
 
-EXPOSE 8000
-
-CMD ["gunicorn", "-b", "0.0.0.0:8000", "server"]
+# Start the application
+CMD ["python", "app.py"]

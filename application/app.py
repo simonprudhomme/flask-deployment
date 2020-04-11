@@ -5,7 +5,13 @@ from flask import Flask, jsonify, request
 
 app = Flask(__name__)
 
-@app.route('/predict', methods=['POST'])
+@app.route('/')
+def main():
+    """ Main page of the API """
+    return "This is the main page"
+
+
+@app.route('/predict', methods=['GET'])
 def predict():
     """
     API Call
@@ -42,3 +48,6 @@ def predict():
         responses.status_code = 200
         print("Done")
         return (responses)
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0')
